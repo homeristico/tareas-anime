@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true"> 
+      <img src="assets/imagenes/tokyo-babylon.jpg" alt="tokyo-babylon">  
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button (click)="irDetalles()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>  
+  </ion-fab>
+  
+  <br>
+
+  <ion-chip>
+    <ion-avatar>
+      <img src="assets/avatar/naruto.jpeg">
+    </ion-avatar>
+    <ion-title>Kit Bishop</ion-title>
+    <ion-icon name="caret-forward-outline"></ion-icon>
+  </ion-chip>
+
+  <ion-chip>
+    <ion-avatar>
+      <img src="./avatar.svg">
+    </ion-avatar>
+    <ion-title>Kit Bishop</ion-title>
+  </ion-chip>
+
 </ion-content>
