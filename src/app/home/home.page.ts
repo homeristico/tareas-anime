@@ -8,12 +8,27 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private _navCon: NavController){
+  arregloTareas:any = [];
 
+  constructor(private _navCon: NavController){
+    this.cargarTareas();
   }
 
-  irDetalles(){
+  ionViewWillEnter(){
+    this.cargarTareas();
+  }
+
+  cargarTareas(){
+    let tareas = JSON.parse(localStorage.getItem('tareas'));
+    this.arregloTareas = tareas.reverse();    
+  }
+
+  irAgregar(){
     this._navCon.navigateForward('/agregar');
+  }
+
+  irDetalles(tarea){    
+    this._navCon.navigateForward('/editar/'+JSON.stringify(tarea));
   }
 
 }

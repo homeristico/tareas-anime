@@ -1,0 +1,22 @@
+<ion-content>
+
+  <ion-icon (click)="irHome()" name="arrow-back-outline"></ion-icon>  
+
+      
+        <img id="eliminar" src="assets/icon/onepiece.png">
+     
+
+  <ion-avatar id="avatar">      
+    <img src="assets/avatar/{{tarea.avatar}}.jpg">
+  </ion-avatar>
+
+  <div id="titulo">{{tarea.titulo.toUpperCase()}}</div>
+
+  <ion-card> 
+    <ion-card-content>
+      {{tarea.detalle}}
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

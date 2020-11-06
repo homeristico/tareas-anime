@@ -1,0 +1,28 @@
+ion-icon {
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#avatar {
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 90px;
+    height: 90px;
+}
+
+#eliminar {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 70%;    
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); 
+}
+
+#titulo {    
+    margin-top: 18px;
+    text-align: center;
+    color: rgb(20, 87, 50);
+    font-weight: bold;
+}

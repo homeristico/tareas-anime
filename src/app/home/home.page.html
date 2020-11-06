@@ -5,26 +5,21 @@
 <ion-content [fullscreen]="true">
 
   <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
-    <ion-fab-button (click)="irDetalles()">
+    <ion-fab-button (click)="irAgregar()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>  
   </ion-fab>
   
   <br>
 
-  <ion-chip>
-    <ion-avatar>
-      <img src="assets/avatar/naruto.jpeg">
+  <ion-chip *ngFor="let tarea of arregloTareas">
+    <ion-avatar>      
+      <img src="assets/avatar/{{tarea.avatar}}.jpg">
     </ion-avatar>
-    <ion-title>Kit Bishop</ion-title>
-    <ion-icon name="caret-forward-outline"></ion-icon>
+    <ion-title>{{tarea.titulo.substring(0,22)}}</ion-title>
+    <ion-icon (click)="irDetalles(tarea)" name="caret-forward-outline"></ion-icon>
   </ion-chip>
 
-  <ion-chip>
-    <ion-avatar>
-      <img src="./avatar.svg">
-    </ion-avatar>
-    <ion-title>Kit Bishop</ion-title>
-  </ion-chip>
+  
 
 </ion-content>
