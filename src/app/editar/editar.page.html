@@ -3,7 +3,7 @@
   <ion-icon (click)="irHome()" name="arrow-back-outline"></ion-icon>  
 
       
-        <img id="eliminar" src="assets/icon/onepiece.png">
+        <img id="eliminar" (click)="mostrarAlert(tarea)" src="assets/icon/onepiece.png">
      
 
   <ion-avatar id="avatar">      
@@ -13,10 +13,43 @@
   <div id="titulo">{{tarea.titulo.toUpperCase()}}</div>
 
   <ion-card> 
-    <ion-card-content>
-      {{tarea.detalle}}
-    </ion-card-content>
+    <ion-label>{{tarea.fecha}}</ion-label>
+
+    <ng-container *ngIf="editar; else editarTarea">
+      <ion-card-content>
+        {{tarea.detalle}}
+      </ion-card-content>
+    </ng-container>
+
+    <ng-template #editarTarea>
+      <ion-item-group>
+
+        <ion-item>
+          <ion-label position="floating">Nombre Tarea</ion-label>
+          <ion-input [(ngModel)]="tarea.titulo" placeholder="..."></ion-input>
+        </ion-item>  
+    
+        <ion-item>
+          <ion-label position="floating">Detalles</ion-label>
+          <ion-textarea [(ngModel)]="tarea.detalle" rows="5" placeholder="..."></ion-textarea>
+        </ion-item>
+
+      </ion-item-group>
+    </ng-template>
+
+    
   </ion-card>
 
+  <!-- BOTON EDITAR -->
+  <ng-container *ngIf="editar; else editarBoton">
+    <ion-fab horizontal="center" vertical="bottom" slot="fixed">    
+      <ion-icon (click)="cambioEditar()" name="create-outline"></ion-icon>    
+    </ion-fab>
+  </ng-container>
 
+  <ng-template #editarBoton>
+    <ion-icon class="guardar" (click)="guardarEditar()" color="success" name="save-outline"></ion-icon>
+    <ion-icon class="cancel" (click)="cancelarEditar()" color="danger" name="close-outline"></ion-icon>
+  </ng-template>
+  
 </ion-content>

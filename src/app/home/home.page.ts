@@ -20,7 +20,9 @@ export class HomePage {
 
   cargarTareas(){
     let tareas = JSON.parse(localStorage.getItem('tareas'));
-    this.arregloTareas = tareas.reverse();    
+    if(tareas !== null){
+      this.arregloTareas = tareas.reverse();    
+    }    
   }
 
   irAgregar(){

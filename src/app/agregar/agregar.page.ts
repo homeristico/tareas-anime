@@ -31,15 +31,23 @@ export class AgregarPage implements OnInit {
     
     let arregloTareas = JSON.parse(localStorage.getItem('tareas'));   
 
-    if(arregloTareas == null){
+    if(arregloTareas === null){
 
       arregloTareas = [];
       this.tarea.id = 1;
       this.tarea.avatar = this.numeroAvatar();  
       this.tarea.fecha = this.fecha();
       arregloTareas.push(this.tarea);
-      localStorage.setItem('tareas',JSON.stringify(arregloTareas));
-      console.log(arregloTareas)      
+      localStorage.setItem('tareas',JSON.stringify(arregloTareas));          
+      this._navCon.navigateBack('/home');
+
+    }else if(arregloTareas.length === 0){
+
+      this.tarea.id = 1;
+      this.tarea.avatar = this.numeroAvatar();  
+      this.tarea.fecha = this.fecha();
+      arregloTareas.push(this.tarea);
+      localStorage.setItem('tareas',JSON.stringify(arregloTareas));          
       this._navCon.navigateBack('/home');
 
     }else{      
@@ -48,9 +56,7 @@ export class AgregarPage implements OnInit {
       this.tarea.avatar = this.numeroAvatar();
       this.tarea.fecha = this.fecha();
       arregloTareas.push(this.tarea);
-      localStorage.setItem('tareas',JSON.stringify(arregloTareas));
-
-      console.log(arregloTareas)
+      localStorage.setItem('tareas',JSON.stringify(arregloTareas));      
       this._navCon.navigateBack('/home');
     }
     
