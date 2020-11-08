@@ -1,6 +1,6 @@
 {
-  "appId": "com.example.app",
-  "appName": "tareas",
+  "appId": "com.animelust.note",
+  "appName": "note",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
