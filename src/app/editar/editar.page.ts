@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
+import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
 
 
 @Component({
@@ -23,7 +24,10 @@ export class EditarPage implements OnInit {
   }
 
   obtenerTarea(){
-    this.tarea = JSON.parse(this._route.snapshot.paramMap.get('tarea'));    
+    let id = parseInt(this._route.snapshot.paramMap.get('tarea'));
+    let arreglo = JSON.parse(localStorage.getItem('tareas'));
+    let obj = arreglo.find(rs => rs.id === id);
+    this.tarea = obj;    
   }
 
   irHome(){    

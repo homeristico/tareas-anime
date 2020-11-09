@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +9,9 @@ import { NavController } from '@ionic/angular';
 export class HomePage {
 
   arregloTareas:any = [];
+  color:string = '';
 
-  constructor(private _navCon: NavController){
+  constructor(private _navCon: NavController, private _alert:AlertController){
     this.cargarTareas();
   }
 
@@ -30,7 +31,19 @@ export class HomePage {
   }
 
   irDetalles(tarea){    
-    this._navCon.navigateForward('/editar/'+JSON.stringify(tarea));
+    this._navCon.navigateForward('/editar/'+tarea.id);
+  }
+
+  async verCompleto(tarea){
+    const alert = await this._alert.create({
+      cssClass: 'my-custom-class',
+      header: `Titulo: ${tarea.titulo}`,
+      subHeader: 'Detalles:',
+      message: tarea.detalle,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
