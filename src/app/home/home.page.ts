@@ -9,7 +9,7 @@ import { AlertController, NavController } from '@ionic/angular';
 export class HomePage {
 
   arregloTareas:any = [];
-  color:string = '';
+  colorChip:string = '';
 
   constructor(private _navCon: NavController, private _alert:AlertController){
     this.cargarTareas();
@@ -44,6 +44,28 @@ export class HomePage {
     });
 
     await alert.present();
+  }
+
+  cambiarColor(tarea){
+        
+    switch (tarea.colorChip){
+      case '':        
+        this.actualizarColor(tarea,'aqua');
+        break;
+      case 'aqua':
+        this.actualizarColor(tarea,'deeppink');
+        break;
+      default:
+        this.actualizarColor(tarea,'');
+        
+    }       
+  }
+
+  actualizarColor(tarea,color){
+    let arreglo = JSON.parse(localStorage.getItem('tareas'));
+    arreglo.map(rs => rs.id === tarea.id ? rs.colorChip =  color : tarea.colorChip =  '');
+    localStorage.setItem('tareas',JSON.stringify(arreglo));
+    this.cargarTareas();
   }
 
 }

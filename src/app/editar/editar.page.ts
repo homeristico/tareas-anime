@@ -27,7 +27,7 @@ export class EditarPage implements OnInit {
     let id = parseInt(this._route.snapshot.paramMap.get('tarea'));
     let arreglo = JSON.parse(localStorage.getItem('tareas'));
     let obj = arreglo.find(rs => rs.id === id);
-    this.tarea = obj;    
+    this.tarea = obj;
   }
 
   irHome(){    

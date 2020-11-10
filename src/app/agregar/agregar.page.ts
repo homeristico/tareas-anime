@@ -14,7 +14,8 @@ export class AgregarPage implements OnInit {
     avatar:'',
     titulo:'',
     detalle:'',
-    fecha:''
+    fecha:'',
+    colorChip:''
   };
 
  
@@ -36,7 +37,7 @@ export class AgregarPage implements OnInit {
       arregloTareas = [];
       this.tarea.id = 1;
       this.tarea.avatar = this.numeroAvatar();  
-      this.tarea.fecha = this.fecha();
+      this.tarea.fecha = this.fecha();      
       arregloTareas.push(this.tarea);
       localStorage.setItem('tareas',JSON.stringify(arregloTareas));          
       this._navCon.navigateBack('/home');

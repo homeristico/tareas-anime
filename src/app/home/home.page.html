@@ -12,8 +12,8 @@
   
   <br>
 
-  <ion-chip *ngFor="let tarea of arregloTareas">
-    <ion-avatar>      
+  <ion-chip *ngFor="let tarea of arregloTareas" [class]="tarea.colorChip">
+    <ion-avatar (click)="cambiarColor(tarea)">      
       <img src="assets/avatar/{{tarea.avatar}}.jpg">
     </ion-avatar>
     <ion-title (click)="verCompleto(tarea)">{{tarea.titulo.substring(0,14)}}</ion-title>
