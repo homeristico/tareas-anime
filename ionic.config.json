@@ -1,5 +1,7 @@
 {
   "name": "tareas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

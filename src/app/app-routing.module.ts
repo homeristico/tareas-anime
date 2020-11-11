@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'editar/:tarea',
     loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
-  },
+  }
 ];
 
 @NgModule({

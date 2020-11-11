@@ -1,9 +1,20 @@
 <ion-content>
 
   <ion-icon (click)="irHome()" name="arrow-back-outline"></ion-icon>  
+  
+  
+    <img id="eliminar" class="sombra" (click)="mostrarAlert(tarea)" src="assets/icon/onepiece.png">
+  
+  
+     
+    <ion-icon *ngIf="mostrar; else datetime" class="derecha" (click)="cambiarNotificar()" color="danger" name="notifications-outline"></ion-icon>     
 
-      
-        <img id="eliminar" (click)="mostrarAlert(tarea)" src="assets/icon/onepiece.png">
+    <ng-template #datetime>        
+      <ion-item>
+        <ion-label>D MMM YYYY H:mm</ion-label>
+        <ion-datetime (ionChange)="crearNotificacion($event)" displayFormat="D MMM YYYY H:mm" min="2020" max="2030" value="{{hora}}"></ion-datetime>
+      </ion-item>
+    </ng-template>
      
 
   <ion-avatar id="avatar">      
@@ -41,10 +52,8 @@
   </ion-card>
 
   <!-- BOTON EDITAR -->
-  <ng-container *ngIf="editar; else editarBoton">
-    <ion-fab horizontal="center" vertical="bottom" slot="fixed">    
-      <ion-icon (click)="cambioEditar()" name="create-outline"></ion-icon>    
-    </ion-fab>
+  <ng-container *ngIf="editar; else editarBoton">    
+      <ion-icon class="centrar" (click)="cambioEditar()" name="create-outline"></ion-icon>        
   </ng-container>
 
   <ng-template #editarBoton>
